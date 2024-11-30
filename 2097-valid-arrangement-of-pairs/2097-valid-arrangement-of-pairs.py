@@ -11,10 +11,10 @@ class Solution:
 
         res = []
         def dfs(src):
-            for child in edges[src]:
-                edges.pop(src)
-                res.append([src, child])
+            while edges[src]:
+                child = edges[src].pop()
                 dfs(child)
+                res.append([src, child])
         
         node = pairs[0][0]
         for src in track:
@@ -23,8 +23,8 @@ class Solution:
                 break
         
         dfs(node)
-        
-        return res
+        print(res)
+        return res[::-1]
 
         
 
