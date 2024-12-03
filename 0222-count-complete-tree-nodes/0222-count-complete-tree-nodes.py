@@ -8,14 +8,7 @@ class Solution:
     def countNodes(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
-        stack = [root]
-        res = 0
-        while stack:
-            head = stack.pop()
-            res += 1
-            if head.left:
-                stack.append(head.left)
-            if head.right:
-                stack.append(head.right)
+        
+        res = 1 + self.countNodes(root.left) + self.countNodes(root.right)
 
         return res
