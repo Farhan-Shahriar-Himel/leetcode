@@ -7,15 +7,16 @@ class Solution:
         
         def backtrack():
             if len(tmp) == n:
-                res.append(tmp[:])
-            else:
-                for i in range(n):
-                    if i not in visit:
-                        visit.add(i)
-                        tmp.append(nums[i])
-                        backtrack()
-                        visit.remove(i)
-                        tmp.pop()
+                res.append(tmp.copy())
+                return 
+            
+            for i in range(n):
+                if i not in visit:
+                    visit.add(i)
+                    tmp.append(nums[i])
+                    backtrack()
+                    visit.remove(i)
+                    tmp.pop()
         backtrack()
-        
+
         return res
