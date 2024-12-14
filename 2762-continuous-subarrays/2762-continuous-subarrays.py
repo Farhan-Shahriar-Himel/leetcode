@@ -3,7 +3,7 @@ class Solution:
         n = len(nums)
         l = r = res = 0
         mx, mn = float(-inf), float(inf)
-
+        
         while r < n:
             mx = max(mx, nums[r])
             mn = min(mn, nums[r])
