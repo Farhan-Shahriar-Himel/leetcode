@@ -13,7 +13,7 @@ class Solution:
         }
 
             
-        def combine(i, curr):
+        def combine(i, curr = ""):
             if len(curr) == len(digits):
                 res.append(curr)
             else:
@@ -21,6 +21,6 @@ class Solution:
                     combine(i + 1, curr + ch)
         
 
-        combine(0, "")
+        combine(0)
 
         return res if res[0] else []
