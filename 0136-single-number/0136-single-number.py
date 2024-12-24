@@ -1,7 +1,9 @@
+from collections import defaultdict as dd
+
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        ans = 0
-        for el in nums:
-            ans ^= el
+        res = 0
+        for num in nums:
+            res ^= num
         
-        return ans
+        return res
