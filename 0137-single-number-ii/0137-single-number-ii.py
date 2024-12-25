@@ -4,4 +4,5 @@ class Solution:
         for num in nums:
             ones = (ones ^ num) & (~twos)
             twos = (twos ^ num) & (~ones)
-        return ones
+
+        return ones - (1 << 32) if ones >= (1 << 31) else ones 
