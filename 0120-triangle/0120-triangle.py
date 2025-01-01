@@ -1,29 +1,23 @@
 class Solution:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
         
-        n = len(triangle)
-        heap = [(triangle[0][0], 0, 0)]
-        dist = defaultdict(lambda: float('inf'))
-        dist[(0, 0)] = triangle[0][0]
+        dp = dict()
+        def Solve(i, j):
+            if i >= len(triangle):
+                return 0
+            
+            if (i, j) in dp:
+                return dp[(i, j)]
 
-        while heap:
-            w, i, j = heappop(heap)
+            op1 = Solve(i + 1, j) + triangle[i][j]
+            op2 = Solve(i + 1, j + 1) + triangle[i][j]
 
-            if w > dist[(i, j)]: continue
-
-            for idx in range(2):
-                x = i + 1
-                y = j + idx
-                
-                if x < n and dist[(x, y)] > dist[(i, j)] + triangle[x][y]:
-                    dist[(x, y)] = dist[(i, j)] + triangle[x][y]
-                    heappush(heap, (dist[(x, y)], x, y))
-
-        res = float('inf')
-        for i in range(len(triangle[-1])):
-            res = min(res, dist[(n - 1, i)])
+            dp[(i, j)] = min(op1, op2)
+            return dp[(i, j)]
         
-        return res
+        return Solve(0, 0)
+            
+            
 
 
         
