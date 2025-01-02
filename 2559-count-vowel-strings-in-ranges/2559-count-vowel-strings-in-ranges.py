@@ -10,8 +10,6 @@ class Solution:
         
         res = []
         for l, r in queries:
-            l += 1
-            r += 1
-            res.append(preCalc[r] - preCalc[l - 1])
+            res.append(preCalc[r + 1] - preCalc[l])
         
         return res
