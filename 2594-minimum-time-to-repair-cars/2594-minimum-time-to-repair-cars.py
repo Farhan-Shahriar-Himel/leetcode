@@ -9,11 +9,11 @@ class Solution:
             return cnt >= cars
 
         l, r = 1, mn_rank * cars * cars
-        while l <= r:
-            mid = (l + r) // 2
+        while r - l > 1:
+            mid = l + (r - l) // 2
             if isPossible(mid):
-                r = mid - 1
+                r = mid
             else:
                 l = mid + 1
         
-        return l
+        return r
