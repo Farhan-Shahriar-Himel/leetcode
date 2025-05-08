@@ -36,7 +36,7 @@ class Solution:
 
                     if wt < time_map[x][y]:
                         time_map[x][y] = wt
-                        heapq.heappush(heap, [time_map[x][y], x, y, 1 if b == 2 else 2])
+                        heapq.heappush(heap, [wt, x, y, 1 if b == 2 else 2])
             
             return 0
         
