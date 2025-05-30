@@ -8,7 +8,6 @@ class Solution:
                 continue
             adj[u].append(v)
         
-        vis1, vis2 = set(), set()
         dist1, dist2 = [float('inf')] * (n + 7), [float('inf')] * (n + 7)
 
         def bfs(src, dist):
